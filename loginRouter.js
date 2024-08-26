@@ -14,20 +14,20 @@ const loginData = {
 const login = async (req, res) => {
     try {
         console.log("Login function called");
-        const response = await axios.post('https://api.matchbook.com/bpapi/rest/security/session', loginData, {
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            timeout: 10000 // 10 seconds timeout
-        });
+        // const response = await axios.post('https://api.matchbook.com/bpapi/rest/security/session', loginData, {
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        //     timeout: 10000 // 10 seconds timeout
+        // });
 
-        console.log('Login successful:', JSON.stringify(response.data));
+        // console.log('Login successful:', JSON.stringify(response.data));
 
-        // Save the response to a file
-        fs.writeFileSync('login-response.json', JSON.stringify(response.data, null, 2));
+        // // Save the response to a file
+        // fs.writeFileSync('login-response.json', JSON.stringify(response.data, null, 2));
 
         // Send the response back to the client
-        res.status(200).json(response.data);
+        res.status(200).json({message: "Login successfully!"});
     } catch (error) {
         if (error.response) {
             console.error('Login failed:', JSON.stringify(error.response.data));
