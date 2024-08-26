@@ -44,7 +44,10 @@ const login = async (req, res) => {
     }
 }
 
+
 // Using POST if you are submitting a form or sending data in the body
 router.post('/login', login);
-
+router.get('/', (req, res) => {
+    res.json("Server is running")
+})
 module.exports = router;
